@@ -51,7 +51,7 @@ export const experiencesData = [
   {
     title: "Full-Stack Developer",
     description:
-      "Currently, I work as a full-stack developer, specializing in web and mobile development. My stack includes React, Next.js, Node.js, MongoDB, PostgreSQL, TypeScript, Tailwind, and Flutter. I am open to freelance or full time opportunities.",
+      "Currently, I work as a full-stack developer, specializing in web and mobile development. My stack includes React, Next.js, Node.js, MongoDB, PostgreSQL, TypeScript, Tailwind, and Flutter. I am open to freelance or full time project.",
     icon: React.createElement(FaReact),
     date: "2023 - present",
   },
