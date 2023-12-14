@@ -1,12 +1,10 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./section-heading";
-import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-btn";
+import { motion } from "framer-motion";
 import toast from "react-hot-toast";
+import SectionHeading from "./section-heading";
+import SubmitBtn from "./submit-btn";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -42,14 +40,33 @@ export default function Contact() {
       <form
         className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
-          const { error } = await sendEmail(formData);
-
-          if (error) {
-            toast.error(error);
-            return;
+          const toastId = toast.loading("sending...", {
+            position: "top-center",
+          });
+          try {
+            const senderEmail = formData.get("senderEmail");
+            const message = formData.get("message");
+            await fetch("/api/send", {
+              method: "POST",
+              body: JSON.stringify({
+                senderEmail,
+                message,
+              }),
+            })
+              .then(async (res) => {
+                if (res.status === 200) {
+                  toast.success("success send email", { id: toastId });
+                } else {
+                  throw await res.json();
+                }
+              })
+              .catch((err) => {
+                throw err;
+              });
+          } catch (error) {
+            console.log(error);
+            toast.error((error as any).toString(), { id: toastId });
           }
-
-          toast.success("Email sent successfully!");
         }}
       >
         <input

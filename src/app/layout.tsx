@@ -40,7 +40,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
-            <Toaster position="top-right" />
+            <Toaster />
             <ThemeSwitch />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
