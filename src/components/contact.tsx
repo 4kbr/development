@@ -2,7 +2,6 @@
 
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
-import toast from "react-hot-toast";
 import SectionHeading from "./section-heading";
 import SubmitBtn from "./submit-btn";
 
@@ -33,59 +32,8 @@ export default function Contact() {
         Please contact me directly at{" "}
         <a className="underline" href="mailto:aramakbar19@gmail.com">
           aramakbar19@gmail.com
-        </a>{" "}
-        or through this form.
+        </a>
       </p>
-
-      <form
-        className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          const toastId = toast.loading("sending...", {
-            position: "top-center",
-          });
-          try {
-            const senderEmail = formData.get("senderEmail");
-            const message = formData.get("message");
-            await fetch("/api/send", {
-              method: "POST",
-              body: JSON.stringify({
-                senderEmail,
-                message,
-              }),
-            })
-              .then(async (res) => {
-                if (res.status === 200) {
-                  toast.success("success send email", { id: toastId });
-                } else {
-                  throw await res.json();
-                }
-              })
-              .catch((err) => {
-                throw err;
-              });
-          } catch (error) {
-            console.log(error);
-            toast.error((error as any).toString(), { id: toastId });
-          }
-        }}
-      >
-        <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="Your email"
-        />
-        <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="message"
-          placeholder="Your message"
-          required
-          maxLength={5000}
-        />
-        <SubmitBtn />
-      </form>
     </motion.section>
   );
 }
