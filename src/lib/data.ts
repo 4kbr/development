@@ -1,10 +1,10 @@
+import bankImg from "@/../public/bank-startup.png";
+import gptOpenaiImg from "@/../public/gpt-openai.png";
+import zarraImg from "@/../public/zarra-development-design.png";
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import gptOpenaiImg from "@/../public/gpt-openai.png";
-import zarraImg from "@/../public/zarra-development-design.png";
-import bankImg from "@/../public/bank-startup.png";
 
 export const links = [
   {
@@ -51,7 +51,7 @@ export const experiencesData = [
   {
     title: "Full-Stack Developer",
     description:
-      "Currently, I work as a full-stack developer, specializing in web and mobile development. My stack includes React, Next.js, Node.js, MongoDB, PostgreSQL, TypeScript, Tailwind, and Flutter. I am open to freelance or full time project.",
+      "Currently, I work as a full-stack developer, specializing in web and mobile development. My stack includes React, Next.js, Node.js, MongoDB, PostgreSQL, TypeScript, Tailwind, and Flutter. I am open to both freelance opportunities and full-time roles.",
     icon: React.createElement(FaReact),
     date: "2023 - present",
   },

@@ -1,14 +1,11 @@
 "use client";
 
-import Image from "next/image";
-import React from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { BsArrowRight, BsLinkedin } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
-import { FaGithubSquare } from "react-icons/fa";
-import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hooks";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -64,9 +61,11 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hai, I&apos;m Akbar.</span> I&apos;m a{" "}
-        <span className="font-bold">full-stack developer</span>. I enjoy
-        building <span className="italic">websites & apps</span>. My focus are
-        on <span className="underline">React (Next.js) & Flutter.</span>
+        <span className="font-bold">full-stack developer</span> with a strong
+        focus on{" "}
+        <span className="underline">
+          Express.js, React (Next.js), and Flutter.
+        </span>
       </motion.h1>
 
       <motion.div
